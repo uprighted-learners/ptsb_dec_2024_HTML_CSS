@@ -1,0 +1,140 @@
+/* 
+Ctrl + / to create a comment, they can also span multiple lines
+*/
+
+/* 
+    List of CSS selectors
+        - Element Selector: is going to select ALL instances of a given tag from our HTML page
+*/
+
+p {
+    color: purple;
+}
+
+body {
+    margin: 0;
+    background: url(https://images.unsplash.com/photo-1714547509046-0cf60126f331?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    height:fit-content;
+}
+
+/* You can also target multiple elements via CSS */
+/* p, h1 {
+    background-color: pink;
+}  */
+
+
+
+/* In order to style multiple elements with a custom name, you can use classes. Denoted by a "." */
+
+.header {
+    text-align: center;
+}
+
+.wrapper {
+    background-color: rgba(0,0,0,.7);
+    /* Em is  relative unit in css. 1em = the default font size of the parent element in HTML */ 
+    padding: .7em;
+    margin-inline: 1em;
+    border-radius: .2em;
+}
+
+
+/* To target an individual item, and maintain uniqueness in its styling, use an ID, denoted by "#" */
+
+#unique {
+    color: olivedrab;
+    text-decoration: underline overline;
+}
+
+nav {
+    text-align: center;
+    background-color: teal;
+    padding: 1em;
+}
+
+/* You can bring more specificity to your selectors by chaining them together. This will target all of the classes of .btn that exist within a parent nav tag */
+nav .btn {
+    color: aqua;
+}
+
+/* This selector will target direct children in CSS */
+
+nav > .btn {
+    background-color: blueviolet;
+}
+
+/* ? The Box Model */
+
+.box {
+    border: .3em solid limegreen;
+    margin: 4em;
+}
+
+.box p {
+    text-align: center;
+    color: lime;
+    margin: 0;
+    padding: 2em;
+}
+
+
+/* Pseudo selectors */
+nav .btn:hover {
+    color: chartreuse;
+}
+
+
+/* 
+    ! CSS Hierarchy
+
+     This is going to allow CSS to use distinct levels of "priority" to style our elements. The order of priority from weakest to strongest is:
+
+     External Style Sheets:
+        - Element
+        - Classes
+        - IDs
+
+     Internal Style Sheets:
+        - Element
+        - Class
+        - IDs
+     
+        -Inline Styling
+        - !important
+    
+    "External Stylesheet" is a .css file which is not the .html file that we have our webpage in
+
+    "Internal Stylesheet" is CSS written within the .html file
+
+    "Inline styling" is when you add the 'style' attribute to an element
+
+*/
+
+
+/* 
+    Order of Specificity
+    1. !important
+    2. in-line style
+    3. id selector
+    4. class selector
+    5. element
+*/
+
+.oos-class {
+    color: blue;
+}
+
+h3{
+    color: aqua;
+    /* !important will take the highest priority regardless of where you do it */
+    /* background-color: black !important; */
+}
+
+#oos {
+    background-color: yellow;
+    color: black;
+}
+
