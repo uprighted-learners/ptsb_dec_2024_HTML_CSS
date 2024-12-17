@@ -1,0 +1,93 @@
+h3 {
+    border: 1px solid purple;
+    background-color: crimson;
+    padding: .3em;
+    margin: 0;
+}
+
+.grid_basics {
+    /* By default a grid will be in rows */
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5em 8em;
+
+    border: 5px solid rebeccapurple;
+    /* height: 40em; */
+    /* Can adjust the vertical positioning of the grid */
+    /* align-content: center; */
+
+}
+
+.grid_explicit{
+    display: "grid";
+
+    /* grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)) */
+     /* Can use repeat */
+
+}
+
+.grid_span{
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    justify-content: center;
+    gap: .5em;
+}
+
+.item1 {
+    background-color: green;
+    grid-row: 1/2;
+    grid-column: span 3/5;
+}
+.item2 {
+    background-color: pink;
+    grid-row: span 3;
+    grid-column: 1;
+}
+.item3 {
+    background-color: yellow;
+    grid-row:span 2;
+    grid-column: span 3;
+}
+.item4 {
+    background-color: teal;
+    grid-row: span 1;
+    grid-column: span 4;
+
+}
+
+
+.grid_template {
+    display: grid;
+    width: 100%;
+
+    grid-template-rows: 50px 15em 3em;
+    grid-template-columns: .5fr 4fr;
+
+    grid-template-areas:  
+        "head head"
+        "nav main"
+        "footer footer"
+    ;
+}
+
+header {
+    background: lightblue;
+    grid-area: head;
+}
+
+nav {
+    background-color: green;
+    grid-area: nav;
+}
+
+main {
+    background-color: purple;
+    grid-area: main;
+}
+
+footer {
+    background-color: red;
+    grid-area: footer;
+}
