@@ -20,11 +20,13 @@ h3 {
 }
 
 .grid_explicit{
-    display: "grid";
-
-    /* grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)) */
-     /* Can use repeat */
-
+    display: grid;
+    /* grid-template-columns: repeat(3, 25%); */
+    grid-template-rows: 1fr 1fr 2fr;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    /* Can use repeat */
+     justify-content: center;
+     gap: .5em;
 }
 
 .grid_span{
