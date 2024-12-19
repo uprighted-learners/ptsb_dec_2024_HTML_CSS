@@ -1,141 +1,172 @@
+/* * Will target every element, good to use to setup defaults at the TOP */
 :root {
-    /* CSS Variables */
     --box-width: 12em;
     --box-height: 7em;
-}
-
-/* Wildcard Selector */
-/* Will select every element */
-* {
+  }
+  
+  * {
     margin: 0;
     padding: 0;
     border: 0;
-
-    font-family: "Montserrat", serif;
+  }
+  
+  body {
+    background-color: #e4e3e3;
+    font-family: Helvetica, sans-serif;
+    display: flex;
+    /* width: 100vw; */
+    flex-direction: column;
+  
+    /* font if time permits */
+    font-family: "Agu Display", serif;
     font-optical-sizing: auto;
+    font-weight: 400;
     font-style: normal;
-}
-
-
-body{
-    display: flex;
-    flex-direction: column;   
-
-}
-
-nav {
-    background-color: steelblue;
+    font-variation-settings: "MORF" 0;
+  }
+  
+  body > * {
+    padding: 1em;
+  }
+  nav {
     position: sticky;
-    height: 3em;
-    min-height: fit-content;
+    margin-bottom: 0.1em;
     top: 0;
+    background-color: rgb(87, 107, 220);
+    /* Initializes flex on parent container */
     display: flex;
-    /*? Allows us to define the direction of the flex items */
+    /* ? Allows us to define direction of flex items (row default) */
     /* flex-direction: column; */
-    /*? Aligns flex items on the main axis  */
-    justify-content: right;
-    /*? Aligns flex items on the cross axis   */
-    align-items: center;
-    gap: .5em;
-}
-
-
-.main-container {
+    /* ? Aligns flex items on main axis */
+    justify-content: flex-end;
+    /* ? Aligns flex items on cross axis */
+    /* align-items: center; */
+    /* ? Allows us to modify space between flex items */
+    gap: 1em;
+    /* Testing out height with the swap of justify and align-items. Row vs. Column */
+    /* height: 50em; */
+  }
+  
+  .main-container {
     border: 2px solid black;
     height: 30em;
     padding-top: 1em;
     padding-bottom: 1em;
-    min-height: fit-content;
+    padding-inline: 1em;
     display: flex;
     /* flex-direction: column; */
-    /* If flex direction is row, align items will adjust the positioning on the y axis */
-    align-items: center;
     justify-content: center;
-    gap:1em;
+    /* ? If we use row we have can have new row appear with flex wrap, respecting the width and height of the container */
     flex-wrap: wrap;
-
+    align-items: center;
+    /* ? Handles white space on flex items that are wrapped within constrained parent, (Need extra room) 
+    */
     /* align-content: center; */
-}
-
-
-.c {
+    gap: 1em;
+    /* fix boxes coming out of container */
+    min-height: fit-content;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    margin: 10px;
+  }
+  
+  .c {
+    backdrop-filter: blur(3);
+    border-width: 1em;
     width: var(--box-width);
     height: var(--box-height);
     min-width: 10em;
     min-height: 7em;
-    box-shadow: .2em .2em 1em black;
-    border-width: 1em;
-
     border-radius: 1em;
-
-    /* Values: allows the flex item to grow, allows the flex item to shrink, min default size of the flex item */
-    /* flex: 1 1 1em */
-}
-
-.c:hover {
-    box-shadow: .7em .7em 1em black;
+  
+    box-shadow: 0.2em 0.2em 1em black;
+  
+    /* Will unlock flex-basis on childr */
+    /* Values are: allowing the item to grow, allowing the item to shrink, and the starting default size, becomes new width */
+    flex: 1 0 1em;
+  }
+  
+  .c:hover {
+    box-shadow: 0.7em 0.7em 1em black;
     cursor: pointer;
-    background-color: rgba(0,150,150,.3);
+    background-color: rgba(0, 150, 150, 0.3);
+    transition: all 0.3s ease-in-out;
     width: calc(var(--box-width) * 1.4);
-    height: calc(var(--box-width) * 1.2);
-    transition: all .3s ease-in-out ;
-}
-
-.c:not(hover){
-    transition: all .7s ease-in-out ;
-
-}
-
-.c1{
+    height: calc(var(--box-height) * 1.2);
+  }
+  .c:not(hover) {
+    cursor: pointer;
+    /* background-color: rgba(0,0,0,.3); */
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .c1 {
     border-color: red;
     border-style: solid;
-}
-.c2{
+  }
+  
+  .c2 {
     border-color: blueviolet;
     border-style: dashed;
     /* flex-basis: 500px; */
-}
-.c3{
+  }
+  
+  .c3 {
     border-color: orange;
     border-style: dotted;
-}
-.c4{
+    /* ? Works on flex item, overrides default flex parent align item property */
+    /* align-self: center; */
+  }
+  
+  .c4 {
     border-color: magenta;
     border-style: double;
-
-}
-.c5{
+    /* ? Test making it maintain its size */
+    /* flex-basis: 500px; */
+  }
+  
+  .c5 {
     border-color: gold;
     border-style: ridge;
-    /* ? Will move the individual item */
-    /* align-self: end; */
-}
-
-.article-preview {
-
-    border: solid purple 1em;
+  }
+  
+  .article-preview {
+    border: solid pink 1em;
     margin-top: 1em;
-    height: 40em;
-    max-height: fit-content;
+    height: 30em;
+    display: flex;
+    align-items: center;
+    min-height: fit-content;
     padding-top: 1em;
     padding-bottom: 1em;
-
-    justify-content: center;
-    align-content: center;
-
-    display: flex;
+    overflow: hidden;
+    /* Test the difference of wrapping v/ no wrap */
     flex-wrap: wrap;
-
-
-}
-
-
-.article-preview img {
-    min-width: 6em;
-    max-width: 17em;
-}
-
-.article-preview .text {
+    justify-content: center;
+    /* flex-direction: row-reverse; */
+    align-content: center;
+    gap: 2em;
+  }
+  
+  .article-preview img {
+    width: 30%;
+    min-width: 16em;
     margin-inline: 1em;
-    width: 70%;
-}
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  .article-preview .text {
+    margin-inline: 1em;
+    max-width: 70%;
+  }
+  
+  h1 {
+    font-size: 5em;
+    background-color: rgba(255, 235, 205, 0.3);
+  }
+  
