@@ -1,0 +1,141 @@
+:root {
+    /* CSS Variables */
+    --box-width: 12em;
+    --box-height: 7em;
+}
+
+/* Wildcard Selector */
+/* Will select every element */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+
+body{
+    display: flex;
+    flex-direction: column;   
+
+}
+
+nav {
+    background-color: steelblue;
+    position: sticky;
+    height: 3em;
+    min-height: fit-content;
+    top: 0;
+    display: flex;
+    /*? Allows us to define the direction of the flex items */
+    /* flex-direction: column; */
+    /*? Aligns flex items on the main axis  */
+    justify-content: right;
+    /*? Aligns flex items on the cross axis   */
+    align-items: center;
+    gap: .5em;
+}
+
+
+.main-container {
+    border: 2px solid black;
+    height: 30em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    min-height: fit-content;
+    display: flex;
+    /* flex-direction: column; */
+    /* If flex direction is row, align items will adjust the positioning on the y axis */
+    align-items: center;
+    justify-content: center;
+    gap:1em;
+    flex-wrap: wrap;
+
+    /* align-content: center; */
+}
+
+
+.c {
+    width: var(--box-width);
+    height: var(--box-height);
+    min-width: 10em;
+    min-height: 7em;
+    box-shadow: .2em .2em 1em black;
+    border-width: 1em;
+
+    border-radius: 1em;
+
+    /* Values: allows the flex item to grow, allows the flex item to shrink, min default size of the flex item */
+    /* flex: 1 1 1em */
+}
+
+.c:hover {
+    box-shadow: .7em .7em 1em black;
+    cursor: pointer;
+    background-color: rgba(0,150,150,.3);
+    width: calc(var(--box-width) * 1.4);
+    height: calc(var(--box-width) * 1.2);
+    transition: all .3s ease-in-out ;
+}
+
+.c:not(hover){
+    transition: all .7s ease-in-out ;
+
+}
+
+.c1{
+    border-color: red;
+    border-style: solid;
+}
+.c2{
+    border-color: blueviolet;
+    border-style: dashed;
+    /* flex-basis: 500px; */
+}
+.c3{
+    border-color: orange;
+    border-style: dotted;
+}
+.c4{
+    border-color: magenta;
+    border-style: double;
+
+}
+.c5{
+    border-color: gold;
+    border-style: ridge;
+    /* ? Will move the individual item */
+    /* align-self: end; */
+}
+
+.article-preview {
+
+    border: solid purple 1em;
+    margin-top: 1em;
+    height: 40em;
+    max-height: fit-content;
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+    justify-content: center;
+    align-content: center;
+
+    display: flex;
+    flex-wrap: wrap;
+
+
+}
+
+
+.article-preview img {
+    min-width: 6em;
+    max-width: 17em;
+}
+
+.article-preview .text {
+    margin-inline: 1em;
+    width: 70%;
+}
